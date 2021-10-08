@@ -1,0 +1,18 @@
+div.row .descriptorText {
+    width: 160px;
+    float: left;
+    display: inline;
+}
+
+div.row .dataText {
+    max-width: 140px;
+    float: left;
+    display: inline;
+}
+
+#gameField .gameUnit {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
