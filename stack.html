@@ -2,6 +2,7 @@
 <html>
 
 <head>
+	<title>Dieringer Lab 7 - Stacks</title>
 	<style>
 		.flex-container {
 			display: flex;
@@ -30,28 +31,38 @@
 
 
 <body>
+	<h1>Alexander Dieringer builds a stack</h1>
+	<hr><br>
+
 	<div class="flex-container" id="target">
-		<div>row item 1</div>
-		<div>row item 2</div>
-		<div>row item 3</div>
+		<div class="stack">row item 1</div>
+		<div class="stack">row item 2</div>
+		<div class="stack">row item 3</div>
 	</div>
 
 	<p> Press the button to create an new element of type div and then add it to the container.
 	</p>
-	<button onclick="makeNewDiv()">Add one</button>
+
+	<div>
+		<label for="stackValue">Enter Value:</label><br>
+		<input type="text" id="stackValue" name="stackValue">
+		<br><br>
+
+		<button onclick="makeNewDiv()">Push Value</button>
+	</div>
 
 
 </body>
 <script>
 	function makeNewDiv() {
 		/* make the div and its text */
-		let element = document.createElement("p")
-		element.innerHTML = "an item after 3"
-		element.style.color = "orange"
+		let element = document.createElement("div");
+		element.innerHTML = document.getElementById("stackValue").value;
+		element.style.color = "orange";
+		element.className = "stack";
 
 		/* add it to the container */
-		document.getElementById('target').appendChild(element)
-
+		document.getElementById('target').appendChild(element);
 	}
 </script>
 
