@@ -29,7 +29,7 @@
       <div class="col-2">
         <button type="button" 
           class="btn btn-primary" 
-          onclick="">
+          onclick="startTime()">
           Start Timer
         </button>
         <br><br>
@@ -51,6 +51,27 @@
     function recordReact() {
       myTime = Date.now();
       console.log("Reacted at: " + myTime);
+    }
+
+    function startTime() {
+      for(let i=0; i < 4; i++) {
+        setTimeout(function() {
+          document.getElementById("countdown").innerHTML = "Count: " + i;
+        }, (3-i)*1000);
+        setTimeout(function() {
+          if( myTime == undefined) {
+            document.getElementById("target").innerHTML = "Too Slow";
+          } else {
+            let buttonTime = Date.now();
+            buttonTime -= myTime;
+            // now we compute difference from 3k seconds
+            buttonTime = 3000 - buttonTime;
+            document.getElementById("target").innerHTML = "Time was " + buttonTime + "ms";
+          }
+        }, 3000);
+      }
+      // reset for new attempt 
+      myTime = undefined;
     }
   </script>
 
