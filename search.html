@@ -16,6 +16,15 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
             integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
             crossorigin="anonymous"></script>
+        
+        <script>
+            function setRandomAnimalLocation() {
+                let min = Math.ceil(0);
+                let max = Math.floor(23);
+                    animalLocation = Math.floor(Math.random() * (max - min + 1) + min);
+                    console.log("New animal location is: " + animalLocation);
+            }
+        </script>
     </head>
     <body>
         <div class="container">
@@ -36,6 +45,14 @@
                     <div class="descriptorText">Distance is: </div>
                     <div class="dataText">unknown</div>
                 </div>
+                <br><br>
+                <button type="button" 
+                    class="btn btn-primary" 
+                    onclick="resetGame()"
+                    style="margin-left: 20px; width: 150px;">
+                    Reset Game
+                </button>
+          <br>
             </div>
             <br>
 
@@ -128,6 +145,8 @@
             var triesCount = 0;
             var animalLocation = 13;
 
+            setRandomAnimalLocation();
+
             // Fill array with unit id + number
             console.log("Creating ids array");
             for(let i=0; i < 24; i++) {
@@ -192,6 +211,29 @@
                     returnValue = -1;
                 }
                 return returnValue;
+            }
+
+            function resetGame() {
+                triesCount = 0;
+                let triesText = document.getElementById("tries").childNodes[3];
+                triesText.innerHTML = 0;
+
+                for(let i=0; i < ids.length; i++) {
+                    console.log("Id["+i+"] being replaced");
+                    const element = document.getElementById(ids[i]).parentElement;
+                    let newImage = document.createElement("img");
+                    newImage.className = "gameUnit";
+                    newImage.src = "bush.png";
+                    newImage.id = ids[i];
+                    newImage.onclick = function() {
+                        check(i);
+                    };
+
+                    element.innerHTML = null;
+                    element.appendChild(newImage);
+                }
+
+                setRandomAnimalLocation();
             }
         </script>
     </body>
