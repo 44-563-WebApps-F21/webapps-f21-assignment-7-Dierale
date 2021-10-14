@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>setTimeout use</title>
+  <title>Dieringer Lab 7 - Reactions</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -13,24 +13,44 @@
 
 <body>
 
-  <h2>Timeout - Red in 3 seconds</h2>
+  <div class="container">
+    <h2>Alexander Dieringer - Reaction Timer</h2>
+    <hr><br>
 
-  <button type="button" class="btn btn-primary" onclick="buttonPress2()">
-    Click me change the color.</button>
+    <div class="row">
+      <div class="col-2">
+        <p id="target">
+          Your time:
+        </p><br>
+        <p id="countdown">
+          Count:
+        </p>
+      </div>
+      <div class="col-2">
+        <button type="button" 
+          class="btn btn-primary" 
+          onclick="">
+          Start Timer
+        </button>
+        <br><br>
+        <button type="button" 
+          class="btn btn-success" 
+          onclick="recordReact()">
+          React Now
+      </button>
+      </div>
+      <div class="col-8">
 
-  <p id="target">I will become red </p>
+      </div>
+    </div>
+  </div>
 
   <script>
-    function buttonPress1() {
-      setTimeout(function () {
-        document.getElementById('target').style.color = "red"
-      }, 3000)
-    }
+    var myTime = undefined;
 
-    function buttonPress2() {
-      setTimeout(() => {
-        document.getElementById('target').style.color = "red"
-      }, 3000)
+    function recordReact() {
+      myTime = Date.now();
+      console.log("Reacted at: " + myTime);
     }
   </script>
 
