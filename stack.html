@@ -83,10 +83,12 @@
 		let inputText = document.getElementById("stackValue").value;
 
 		for(let i=0; i < stackSize; i++) {
-			if(stackItems[i].innerHTML == inputText) {
-				let tValue = stackItems[stackSize - 1].innerHTML;
-				stackItems[stackSize - 1].remove();
-				console.log("Removed stackItems[" + (stackSize - 1) + "]: " + tValue);
+			console.log("Length: " + stackSize + ", @ stackItems["+i+"]");
+			if(stackItems[i].innerHTML != undefined) {
+				if(stackItems[i].innerHTML  == inputText) {
+					stackItems[i].remove();
+					console.log("Removed stackItems[" + i + "]");
+				}
 			}
 		}
 	}
