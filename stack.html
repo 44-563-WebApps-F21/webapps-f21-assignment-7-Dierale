@@ -53,6 +53,8 @@
 		<button onclick="popItem()">Pop</button>
 		<br><br>
 		<button onclick="zap()">Zap</button>
+		<br><br>
+		<button onclick="unique()">Remove Duplicates</button>
 	</div>
 
 
@@ -91,6 +93,18 @@
 				}
 			}
 		}
+	}
+
+	function unique() {
+		const items = [...document.querySelectorAll('.stack')];
+		const texts = new Set(items.map(x => x.innerHTML));
+		items.forEach(item => {
+			if(texts.has(item.innerHTML)){
+				texts.delete(item.innerHTML);
+			} else {
+				item.remove()
+			}
+		});
 	}
 </script>
 
