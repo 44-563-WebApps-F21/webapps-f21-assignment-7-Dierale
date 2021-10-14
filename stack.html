@@ -49,6 +49,10 @@
 		<br><br>
 
 		<button onclick="makeNewDiv()">Push Value</button>
+		<br><br>
+		<button onclick="popItem()">Pop</button>
+		<br><br>
+		<button onclick="zap()">Zap</button>
 	</div>
 
 
@@ -63,6 +67,28 @@
 
 		/* add it to the container */
 		document.getElementById('target').appendChild(element);
+	}
+
+	function popItem() {
+		let stackItems = document.getElementsByClassName("stack");
+		let stackSize = stackItems.length;
+		if (stackSize > 0) {
+			stackItems[stackSize - 1].remove();
+		}
+	}
+
+	function zap() {
+		let stackItems = document.getElementsByClassName("stack");
+		let stackSize = stackItems.length;
+		let inputText = document.getElementById("stackValue").value;
+
+		for(let i=0; i < stackSize; i++) {
+			if(stackItems[i].innerHTML == inputText) {
+				let tValue = stackItems[stackSize - 1].innerHTML;
+				stackItems[stackSize - 1].remove();
+				console.log("Removed stackItems[" + (stackSize - 1) + "]: " + tValue);
+			}
+		}
 	}
 </script>
 
